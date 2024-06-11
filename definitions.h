@@ -28,7 +28,7 @@ extern DigitalIn Remote_Whistle;
 extern DigitalIn Remote_Deadman;
 
 //RTC STATUS INPUT
-//extern DigitalIn Train_RTC_Circuit;
+extern DigitalIn Train_RTC_Circuit;
 
 //SYSTEM OUTPUTS
 

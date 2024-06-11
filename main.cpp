@@ -27,19 +27,18 @@ int main()
         // Whistle = 1;
         // C_COM = 1;
 
+        C_BAT = Remote_C_BAT; 
+
         // Check if C_BAT is closed for traction cabinet power
-        if (C_BAT == 1) {
+        if (Remote_C_BAT == 1) {
 
             // Update WHISTLE and COMPRESSOR status
+            C_BAT = Remote_C_BAT;
             C_COM = Remote_C_COM;
             Whistle = Remote_Whistle;
 
-
-
-            
-
-            //Check whether RTC is closed adn deadman pressed
-            if (Remote_Deadman == 1) {
+            //Check whether RTC is closed and deadman pressed
+            if (Remote_Deadman == 1 && Train_RTC_Circuit == 0) {
 
                 //Update PARKING BRAKE status
                 brakeStatus = Remote_ParkBrake; //Read variable only once
@@ -57,6 +56,7 @@ int main()
             }
         }
         else {  //Force override PARKING BRAKE and IGNITION switch states if C_BAT open
+            C_BAT = Remote_C_BAT;
             ParkBrakeFront = 1; //Activate parking brakes
             ParkBrakeRear = 1;
             MC_IgnitionOn = 0; //Turn off motor controller ignition
@@ -66,5 +66,7 @@ int main()
         // STUFF BELOW MIGHT NOT WORK - COMMENT OUT IF PROGRAM CRASHES
         // std::string status = MC_CBattery + MC_CBattery + MC_CBattery;
         // debugPrint(debugState, status);
+
+        wait_us(10000);
     }
 }

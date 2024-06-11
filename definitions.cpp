@@ -19,7 +19,7 @@ DigitalIn Remote_C_BAT(PD_13, PullDown);
 DigitalIn Remote_C_COM(PE_12, PullDown);
 
 //REMOTE CONTROL - PARKING BRAKES
-DigitalIn Remote_ParkBrake(PE_15, PullDown);
+DigitalIn Remote_ParkBrake(PE_15, PullUp);
 
 //REMOTE CONTROL - WHISTLE
 DigitalIn Remote_Whistle(PE_14, PullDown);
@@ -28,7 +28,7 @@ DigitalIn Remote_Whistle(PE_14, PullDown);
 DigitalIn Remote_Deadman(PD_12, PullDown);
 
 //RTC STATUS INPUT
-//DigitalIn Train_RTC_Circuit(, PullDown);
+DigitalIn Train_RTC_Circuit(, PullDown);
 
 
 //SYSTEM OUTPUTS
