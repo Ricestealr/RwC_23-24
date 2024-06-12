@@ -28,7 +28,7 @@ DigitalIn Remote_Whistle(PE_14, PullDown);
 DigitalIn Remote_Deadman(PD_12, PullDown);
 
 //RTC STATUS INPUT
-DigitalIn Train_RTC_Circuit(, PullDown);
+DigitalIn Train_RTC_Circuit(PA_3, PullDown);
 
 
 //SYSTEM OUTPUTS
