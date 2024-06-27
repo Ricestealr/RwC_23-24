@@ -42,9 +42,15 @@ int main()
         //UPDATE TRAIN LIGHT STATUS
         if (temp_Remote_IgnitionOn == 1 && temp_Remote_ReverseMode == 0) { // Train in forward mode and powered
             Fwd_Mode_Lights = 1;
+            Rv_Mode_Lights = 0;
         }
         else if (temp_Remote_IgnitionOn == 1 && temp_Remote_ReverseMode == 1) { // Train in reverse mode and powered
             Rv_Mode_Lights = 1;
+            Fwd_Mode_Lights = 0;
+        }
+        else {  // Turn all directional lights off
+            Rv_Mode_Lights = 0;
+            Fwd_Mode_Lights = 0;
         }
 
 
