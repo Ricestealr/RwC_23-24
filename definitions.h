@@ -1,5 +1,5 @@
 /* Written by Chris Wong
- * Last Updated: 07-06-2024
+ * Last Updated: 27-06-2024
  * RwC 2023 - 2024
  */
 
@@ -35,6 +35,7 @@ extern DigitalIn Train_RTC_Circuit_5;
 //MOTOR CONTROLLER (MC)
 extern DigitalOut MC_IgnitionOn;
 extern DigitalOut MC_ReverseMode;
+extern DigitalOut C_BAT;
 
 //COMPRESSOR
 extern DigitalOut C_COM;

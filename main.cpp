@@ -1,5 +1,5 @@
 /* Written by Chris Wong
- * Last Updated: 07-06-2024
+ * Last Updated: 27-06-2024
  * RwC 2023 - 2024
  */
 
@@ -14,6 +14,9 @@ int main()
     int temp_Remote_ReverseMode;
 
     while (true) {
+
+        // CLOSE C_BAT to power MC when control cabinet powered
+        C_BAT = 1;
 
         // Update WHISTLE and COMPRESSOR status
         C_COM = Remote_C_COM;
