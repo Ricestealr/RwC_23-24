@@ -13,37 +13,39 @@
 //REMOTE CONTROL - MOTOR CONTROLLER
 DigitalIn Remote_IgnitionOn(PD_11, PullDown);
 DigitalIn Remote_ReverseMode(PE_10, PullDown);
-DigitalIn Remote_C_BAT(PD_13, PullDown);
 
 //REMOTE CONTROL - COMPRESSOR
 DigitalIn Remote_C_COM(PE_12, PullDown);
 
 //REMOTE CONTROL - PARKING BRAKES
-DigitalIn Remote_ParkBrake(PE_15, PullUp);
+//DigitalIn Remote_ParkBrake(PE_15, PullUp);
 
 //REMOTE CONTROL - WHISTLE
 DigitalIn Remote_Whistle(PE_14, PullDown);
 
-//REMOTE CONTROL - DEADMAN
-DigitalIn Remote_Deadman(PD_12, PullDown);
-
 //RTC STATUS INPUT
-DigitalIn Train_RTC_Circuit(PA_3, PullDown);
-
+DigitalIn Train_RTC_Circuit_1(PA_3, PullDown);
+DigitalIn Train_RTC_Circuit_2(PA_3, PullDown);
+DigitalIn Train_RTC_Circuit_3(PA_3, PullDown);
+DigitalIn Train_RTC_Circuit_4(PA_3, PullDown);
+DigitalIn Train_RTC_Circuit_5(PA_3, PullDown);
 
 //SYSTEM OUTPUTS
 
 //MOTOR CONTROLLER (MC)
 DigitalOut MC_IgnitionOn(PE_0);
 DigitalOut MC_ReverseMode(PG_8);
-DigitalOut C_BAT(PG_5);
 
 //COMPRESSOR
 DigitalOut C_COM(PG_6);
 
 //PARKING BRAKES (NOTE: Parking brake uses two pins)
-DigitalOut ParkBrakeFront(PF_3);
-DigitalOut ParkBrakeRear(PF_15);
+//DigitalOut ParkBrakeFront(PF_3);
+//DigitalOut ParkBrakeRear(PF_15);
 
 //WHISTLE
 DigitalOut Whistle(PF_11);
+
+//TRAIN LIGHTS
+DigitalOut Fwd_Mode_Lights(PF_11);
+DigitalOut Rv_Mode_Lights(PF_11);

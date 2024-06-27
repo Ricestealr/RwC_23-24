@@ -6,55 +6,44 @@
 #include <mbed.h>           //Required to interface with mbed
 #include "definitions.h"    //Defines mbed input/output pins
 
-// void debugPrint(bool debugState, std::string& text) // Print debug messages to terminal if debug mode on
-// {
-//     if (debugState == true){
-//         printf(text + "\r\n");
-//     }
-// }
-
-
 int main()
 {
 
-    //SET DEBUG MODE
-    bool debugState = false;
-
-    //MAIN VARIABLE DECLARATIONS
-    int brakeStatus;
-
-    // Turn on C_BAT to provide MOTOR CONTROLLER (MC) power
-    C_BAT = 1; 
+    int Train_RTC_Circuit_Status;
+    int temp_Remote_IgnitionOn;
+    int temp_Remote_ReverseMode;
 
     while (true) {
-        // Whistle = 1;
-        // C_COM = 1;
 
         // Update WHISTLE and COMPRESSOR status
         C_COM = Remote_C_COM;
         Whistle = Remote_Whistle;
 
-        //Check whether RTC is closed and deadman pressed
-        if (Remote_Deadman == 1 && Train_RTC_Circuit == 0) {
+        Train_RTC_Circuit_Status = Train_RTC_Circuit_1 + Train_RTC_Circuit_2 + Train_RTC_Circuit_3 + Train_RTC_Circuit_4 + Train_RTC_Circuit_5;
 
-            //Update PARKING BRAKE status
-            brakeStatus = Remote_ParkBrake; //Read variable only once
-            ParkBrakeFront = brakeStatus;
-            ParkBrakeRear = brakeStatus;
+        // Read remote control switch states and store as variables
+        temp_Remote_IgnitionOn = Remote_IgnitionOn;
+        temp_Remote_ReverseMode = Remote_ReverseMode;
+
+        //Check whether RTC is closed and deadman pressed
+        if (Train_RTC_Circuit_Status == 0) {
 
             //Update MOTOR CONTROLLER status
-            MC_IgnitionOn = Remote_IgnitionOn;
-            MC_ReverseMode = Remote_ReverseMode;
+            MC_IgnitionOn = temp_Remote_IgnitionOn;
+            MC_ReverseMode = temp_Remote_ReverseMode;
         }
         else {  //Force override PARKING BRAKE and IGNITION switch states if RTC/DEADMAN open
-            ParkBrakeFront = 1; //Activate parking brakes
-            ParkBrakeRear = 1;
             MC_IgnitionOn = 0; //Turn off motor controller ignition
         }
 
-        // STUFF BELOW MIGHT NOT WORK - COMMENT OUT IF PROGRAM CRASHES
-        // std::string status = MC_CBattery + MC_CBattery + MC_CBattery;
-        // debugPrint(debugState, status);
+        //UPDATE TRAIN LIGHT STATUS
+        if (temp_Remote_IgnitionOn == 1 && temp_Remote_ReverseMode == 0) { // Train in forward mode and powered
+            Fwd_Mode_Lights = 1;
+        }
+        else if (temp_Remote_IgnitionOn == 1 && temp_Remote_ReverseMode == 1) { // Train in reverse mode and powered
+            Rv_Mode_Lights = 1;
+        }
+
 
         wait_us(10000);
     }

@@ -13,38 +13,41 @@
 //REMOTE CONTROL - MOTOR CONTROLLER
 extern DigitalIn Remote_IgnitionOn;
 extern DigitalIn Remote_ReverseMode;
-extern DigitalIn Remote_C_BAT;
 
 //REMOTE CONTROL - COMPRESSOR
 extern DigitalIn Remote_C_COM;
 
 //REMOTE CONTROL - PARKING BRAKES
-extern DigitalIn Remote_ParkBrake;
+//extern DigitalIn Remote_ParkBrake;
 
 //REMOTE CONTROL - WHISTLE
 extern DigitalIn Remote_Whistle;
 
-//REMOTE CONTROL - DEADMAN
-extern DigitalIn Remote_Deadman;
-
 //RTC STATUS INPUT
-extern DigitalIn Train_RTC_Circuit;
+extern DigitalIn Train_RTC_Circuit_1;
+extern DigitalIn Train_RTC_Circuit_2;
+extern DigitalIn Train_RTC_Circuit_3;
+extern DigitalIn Train_RTC_Circuit_4;
+extern DigitalIn Train_RTC_Circuit_5;
 
 //SYSTEM OUTPUTS
 
 //MOTOR CONTROLLER (MC)
 extern DigitalOut MC_IgnitionOn;
 extern DigitalOut MC_ReverseMode;
-extern DigitalOut C_BAT;
 
 //COMPRESSOR
 extern DigitalOut C_COM;
 
 //PARKING BRAKES
-extern DigitalOut ParkBrakeFront;
-extern DigitalOut ParkBrakeRear;
+//extern DigitalOut ParkBrakeFront;
+//extern DigitalOut ParkBrakeRear;
 
 //WHISTLE
 extern DigitalOut Whistle;
+
+//TRAIN LIGHTS
+extern DigitalOut Fwd_Mode_Lights;
+extern DigitalOut Rv_Mode_Lights;
 
 #endif
