@@ -18,10 +18,13 @@ extern DigitalIn Remote_ReverseMode;
 extern DigitalIn Remote_C_COM;
 
 //REMOTE CONTROL - PARKING BRAKES
-//extern DigitalIn Remote_ParkBrake;
+extern DigitalIn Remote_ParkBrake;
 
 //REMOTE CONTROL - WHISTLE
 extern DigitalIn Remote_Whistle;
+
+//REMOTE CONTROL - AUTOSTOP
+extern DigitalIn Remote_AutoStop;
 
 //RTC STATUS INPUT
 extern DigitalIn Train_RTC_Circuit_1;
@@ -41,8 +44,7 @@ extern DigitalOut C_BAT;
 extern DigitalOut C_COM;
 
 //PARKING BRAKES
-//extern DigitalOut ParkBrakeFront;
-//extern DigitalOut ParkBrakeRear;
+extern DigitalOut ParkBrake;
 
 //WHISTLE
 extern DigitalOut Whistle;

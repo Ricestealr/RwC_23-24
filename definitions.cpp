@@ -18,10 +18,13 @@ DigitalIn Remote_ReverseMode(PG_5, PullDown);
 DigitalIn Remote_C_COM(PG_8, PullDown);
 
 //REMOTE CONTROL - PARKING BRAKES
-//DigitalIn Remote_ParkBrake(PE_15, PullUp);
+DigitalIn Remote_ParkBrake(PE_0, PullDown);
 
 //REMOTE CONTROL - WHISTLE
 DigitalIn Remote_Whistle(PF_11, PullDown);
+
+//REMOTE CONTROL - AUTOSTOP
+DigitalIn Remote_AutoStop(PF_15, PullDown);
 
 //RTC STATUS INPUT
 DigitalIn Train_RTC_Circuit_1(PD_13, PullDown);
@@ -40,13 +43,12 @@ DigitalOut C_BAT(PA_14);
 //COMPRESSOR
 DigitalOut C_COM(PD_6);
 
-//PARKING BRAKES (NOTE: Parking brake uses two pins)
-//DigitalOut ParkBrakeFront(PF_3);
-//DigitalOut ParkBrakeRear(PF_15);
+//PARKING BRAKES
+DigitalOut ParkBrake(PF_1);
 
 //WHISTLE
 DigitalOut Whistle(PD_5);
 
 //TRAIN LIGHTS
-DigitalOut Fwd_Mode_Lights(PG_4);
-DigitalOut Rv_Mode_Lights(PG_7);
+DigitalOut Fwd_Mode_Lights(PF_10);
+DigitalOut Rv_Mode_Lights(PE_8);
